@@ -9,4 +9,8 @@
     <PackageReference Include="NetCoreServer" Version="5.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HiLo.Multiplayer.Logic\HiLo.Multiplayer.Logic.csproj" />
+  </ItemGroup>
+
 </Project>

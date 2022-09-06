@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace TCP2.Server
+namespace HiLo.Multiplayer.Server
 {
     class Program
     {
