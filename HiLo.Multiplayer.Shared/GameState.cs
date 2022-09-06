@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HiLo.Multiplayer.Shared;
+using System;
 using System.Collections.Generic;
 
 namespace TCP2.Shared
@@ -8,5 +9,7 @@ namespace TCP2.Shared
         public Guid GameId { get; set; }
         public List<Guid> PlayerIds { get; set; }
         public int SecretNumber { get; set; }
+
+        public bool GameEnded { get; set; }
     }
 }
