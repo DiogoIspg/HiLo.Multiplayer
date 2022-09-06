@@ -2,13 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using TCP2.Shared;
 
 namespace HiLo.Multiplayer.Logic
 {
-    public class HiloGame
+    public class HiloGame : IHiloGame
     {
-        private GameState gameState;
+        public virtual GameState gameState { get; private set; }
 
         private const int MAX_PLAYABLE_NUMBER = 200;
 
@@ -25,13 +24,14 @@ namespace HiLo.Multiplayer.Logic
 
         public (List<PlayerGameState>, bool gameEnded) MakePlay(List<PlayerGameState> allPlayersMoves)
         {
-            if(this.gameState.GameEnded)
+            if (this.gameState.GameEnded)
             {
                 throw new GameEndedException($"Game id {this.gameState.GameId} already ended, but players tried to make a move!");
             }
 
             foreach (var move in allPlayersMoves)
             {
+                // TODO: remove state mutation
                 move.HighLow = MakePlay(move.CurrentPlay);
             }
 
@@ -42,7 +42,7 @@ namespace HiLo.Multiplayer.Logic
 
         private HiloState MakePlay(int numberPlayed)
         {
-            if(numberPlayed == this.gameState.SecretNumber)
+            if (numberPlayed == this.gameState.SecretNumber)
             {
                 return HiloState.Correct;
             }

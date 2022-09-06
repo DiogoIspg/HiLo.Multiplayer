@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TCP2.Shared
+namespace HiLo.Multiplayer.Shared
 {
     public class GameState
     {
